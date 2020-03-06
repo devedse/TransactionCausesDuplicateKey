@@ -70,9 +70,9 @@ namespace TransactionCausesDuplicateKey.Services
 
             //This is an event with a unique event id but the same person details. It should fail on a duplicate key for the Employee Table
             await ProcessNewhireEvent("TEST2", "John", "0001", "0001");
-            //This works :)
+            //This is as expected
 
-            //When we send this event again, it fails on a different exception
+            //When we now submit a new completely unrelated event, it still fails on trying to add the previous event
             await ProcessNewhireEvent("TEST3", "Henk", "0002", "0002");
         }
 
